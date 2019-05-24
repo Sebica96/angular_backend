@@ -50,7 +50,7 @@ module.exports = (config) => {
     });
 
     router.post('/update', (req, res) => {
-        if(req.body.name !== undefined){
+        if(req.body.name !== undefined && req.body.id !== undefined){
             config.services.item.update(req.body)
             .then(response => {
                 if(response[0] !== 0) {
