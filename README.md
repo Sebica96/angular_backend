@@ -4,9 +4,9 @@
 
 # URL
 
-[Click here](https://glacial-retreat-61322.herokuapp.com/cart/all) to access the webpage.
+[Click here](https://whispering-brook-61385.herokuapp.com/cart/all) to access the webpage.
 
-https://glacial-retreat-61322.herokuapp.com/
+https://whispering-brook-61385.herokuapp.com
 
 ## Cart routing
 
@@ -100,6 +100,14 @@ Example:
 Methods: post
 Returns: Item
 Required fields: name, cartId
+```
+
+#### /create/many
+
+```
+Methods: post
+Returns: Item[]
+Required fields: Item[]
 ```
 
 #### /delete
