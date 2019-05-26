@@ -34,6 +34,19 @@ module.exports = (config) => {
         }
     });
 
+    router.post('/create/many', (req, res) => {
+        if(req.body instanceof Array){ 
+            config.services.item.createMany(req.body)
+                .then(items => {
+                    return res.send(items);
+                }).catch(err => {
+                    return res.sendStatus(500);
+                });
+        } else {
+            return res.send('ok');
+        }
+    });
+
     router.post('/delete', (req, res) => {
         if(req.body.id !== undefined) {
             config.services.item.destroy(req.body.id)

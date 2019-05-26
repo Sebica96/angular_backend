@@ -29,6 +29,17 @@ module.exports = (models) => {
         });
     };
 
+    const createMany = (objects) => {
+        return new Promise((resolve, reject) => {
+            Item.bulkCreate(objects)
+                .then(response => {
+                    resolve(response);
+                }).catch(err => {
+                    reject(err);
+                });
+        });
+    }
+
     const update = (object) => {
         return new Promise((resolve, reject) => {
             Item.update({
@@ -64,6 +75,7 @@ module.exports = (models) => {
         get,
         create,
         update,
-        destroy
+        destroy,
+        createMany
     };
 }
