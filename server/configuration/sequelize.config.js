@@ -13,8 +13,8 @@ module.exports = (config) => {
     models.cart = cart;
     models.item = item;
 
-    cart.hasMany(item);
-    item.belongsTo(cart);
+    cart.hasMany(item, { onDelete: 'cascade' });
+    item.belongsTo(cart, { onDelete: 'cascade' });
 
     if(config.database.sync) {
         sequelize.query('SET FOREIGN_KEY_CHECKS=0', { raw: true })
